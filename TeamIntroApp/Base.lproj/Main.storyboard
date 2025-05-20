@@ -1,24 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TeamIntroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q3w-3L-guV">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member5" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-Zu-PbX">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="94.333333333333329"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ITG-7F-eE2" appends="YES" id="vb3-3N-adg"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-6u-sFH">
+                                        <rect key="frame" x="0.0" y="113.99999999999999" width="393" height="94.666666666666643"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="K6k-Kh-GTI" appends="YES" id="cM8-KG-Nlv"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Jp-XZ-Krh">
+                                        <rect key="frame" x="0.0" y="227" width="393" height="96"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="BrS-GK-Muc" appends="YES" id="nrD-Ps-RET"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.badge.checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-cj-A2o">
+                                        <rect key="frame" x="0.0" y="341.33333333333331" width="395.66666666666669" height="98.666666666666686"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="ov0-BS-rqh" appends="YES" id="gCF-Gc-LLE"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.badge.checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iNK-DX-thT">
+                                        <rect key="frame" x="0.0" y="456.00000000000006" width="395.66666666666669" height="98.333333333333428"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Whp-jr-cdl" appends="YES" id="aNp-L8-1Ay"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member5" translatesAutoresizingMaskIntoConstraints="NO" id="BUh-8x-S7d">
+                                        <rect key="frame" x="0.0" y="571.66666666666663" width="393" height="94.333333333333371"/>
+                                        <color key="tintColor" systemColor="systemPurpleColor"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="1VA-bO-HlG" appends="YES" id="fKD-pc-P4B"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="BUh-8x-S7d" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="3za-to-o5U"/>
+                                    <constraint firstItem="9Jp-XZ-Krh" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="7Eg-0F-HSc"/>
+                                    <constraint firstItem="0rn-6u-sFH" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="pLX-HC-gwv"/>
+                                    <constraint firstItem="iNK-DX-thT" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="tKH-rK-wwg"/>
+                                    <constraint firstItem="ghd-cj-A2o" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="yBI-Cl-xMs"/>
+                                </constraints>
+                            </stackView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="-1" maxValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-i8-aDN">
+                                <rect key="frame" x="-2" y="411" width="397" height="31"/>
+                                <connections>
+                                    <action selector="sliderChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YHA-IE-V11"/>
+                                </connections>
+                            </slider>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="q3w-3L-guV" secondAttribute="bottom" id="2Zi-xg-0bX"/>
+                            <constraint firstItem="wFb-i8-aDN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="5DR-qd-JQc"/>
+                            <constraint firstItem="wFb-i8-aDN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="5z1-X5-Ce1"/>
+                            <constraint firstItem="q3w-3L-guV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Acc-gb-oES"/>
+                            <constraint firstItem="q3w-3L-guV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GGw-mp-5GS"/>
+                            <constraint firstItem="wFb-i8-aDN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TUX-YC-kHL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q3w-3L-guV" secondAttribute="trailing" id="WdO-bt-mV1"/>
+                            <constraint firstItem="wFb-i8-aDN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tDu-JQ-8xa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="memberImageView1" destination="0rn-6u-sFH" id="4OY-MW-91i"/>
+                        <outlet property="memberImageView2" destination="9Jp-XZ-Krh" id="dOt-d5-nC5"/>
+                        <outlet property="memberImageView3" destination="ghd-cj-A2o" id="dvu-FP-660"/>
+                        <outlet property="memberImageView4" destination="iNK-DX-thT" id="z7l-wi-glD"/>
+                        <outlet property="memberImageView5" destination="BUh-8x-S7d" id="L4a-dD-Ebu"/>
+                        <outlet property="slider" destination="wFb-i8-aDN" id="onJ-2j-ZS7"/>
+                        <outlet property="teamImageView" destination="2Rh-Zu-PbX" id="SpA-QB-nVi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ITG-7F-eE2"/>
+                <tapGestureRecognizer id="K6k-Kh-GTI"/>
+                <tapGestureRecognizer id="ov0-BS-rqh"/>
+                <tapGestureRecognizer id="1VA-bO-HlG"/>
+                <tapGestureRecognizer id="BrS-GK-Muc"/>
+                <tapGestureRecognizer id="Whp-jr-cdl"/>
             </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="member5" width="532.66668701171875" height="532.66668701171875"/>
+        <image name="square.and.arrow.down.badge.checkmark" catalog="system" width="113" height="128"/>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
+        <image name="square.and.arrow.up.badge.checkmark" catalog="system" width="112" height="128"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="117" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
