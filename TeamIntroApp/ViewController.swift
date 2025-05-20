@@ -13,7 +13,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
+    @IBAction func blogButtonTapped(_ sender: UIButton) {
+        let memberListVC = TempForBlogMemberListViewController()
+        self.navigationController?.pushViewController(memberListVC, animated: true)
+    }
 
 }
 
