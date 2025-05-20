@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--List Page View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TeamIntroApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListPageViewController" customModule="TeamIntroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="q3w-3L-guV">
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member5" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-Zu-PbX">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-Zu-PbX">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="94.333333333333329"/>
                                         <color key="backgroundColor" systemColor="systemPinkColor"/>
                                         <gestureRecognizers/>
@@ -27,33 +27,33 @@
                                             <outletCollection property="gestureRecognizers" destination="ITG-7F-eE2" appends="YES" id="vb3-3N-adg"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-6u-sFH">
-                                        <rect key="frame" x="0.0" y="113.99999999999999" width="393" height="94.666666666666643"/>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member1" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-6u-sFH">
+                                        <rect key="frame" x="0.0" y="114.33333333333334" width="393" height="94.333333333333343"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="K6k-Kh-GTI" appends="YES" id="cM8-KG-Nlv"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9Jp-XZ-Krh">
-                                        <rect key="frame" x="0.0" y="227" width="393" height="96"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member2" translatesAutoresizingMaskIntoConstraints="NO" id="9Jp-XZ-Krh">
+                                        <rect key="frame" x="0.0" y="228.66666666666671" width="393" height="94.333333333333343"/>
                                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="BrS-GK-Muc" appends="YES" id="nrD-Ps-RET"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.badge.checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-cj-A2o">
-                                        <rect key="frame" x="0.0" y="341.33333333333331" width="395.66666666666669" height="98.666666666666686"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ghd-cj-A2o">
+                                        <rect key="frame" x="0.0" y="343" width="393" height="94.333333333333314"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="ov0-BS-rqh" appends="YES" id="gCF-Gc-LLE"/>
                                         </connections>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.down.badge.checkmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iNK-DX-thT">
-                                        <rect key="frame" x="0.0" y="456.00000000000006" width="395.66666666666669" height="98.333333333333428"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="member4" translatesAutoresizingMaskIntoConstraints="NO" id="iNK-DX-thT">
+                                        <rect key="frame" x="0.0" y="457.33333333333337" width="393" height="94.333333333333371"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="Whp-jr-cdl" appends="YES" id="aNp-L8-1Ay"/>
@@ -76,10 +76,10 @@
                                     <constraint firstItem="ghd-cj-A2o" firstAttribute="height" secondItem="2Rh-Zu-PbX" secondAttribute="height" id="yBI-Cl-xMs"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="-1" maxValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-i8-aDN">
+                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-i8-aDN">
                                 <rect key="frame" x="-2" y="411" width="397" height="31"/>
                                 <connections>
-                                    <action selector="sliderChange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YHA-IE-V11"/>
+                                    <action selector="sliderChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Khe-qQ-gNo"/>
                                 </connections>
                             </slider>
                         </subviews>
@@ -114,20 +114,16 @@
                 <tapGestureRecognizer id="BrS-GK-Muc"/>
                 <tapGestureRecognizer id="Whp-jr-cdl"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="-54" y="111"/>
         </scene>
     </scenes>
     <resources>
+        <image name="member1" width="816" height="816"/>
+        <image name="member2" width="287.33334350585938" height="287.33334350585938"/>
+        <image name="member4" width="426.66665649414062" height="426.66665649414062"/>
         <image name="member5" width="532.66668701171875" height="532.66668701171875"/>
-        <image name="square.and.arrow.down.badge.checkmark" catalog="system" width="113" height="128"/>
-        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
-        <image name="square.and.arrow.up.badge.checkmark" catalog="system" width="112" height="128"/>
-        <image name="square.and.arrow.up.fill" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
