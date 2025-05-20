@@ -1,0 +1,37 @@
+[
+    {
+        "imageName": "pic0",
+        "name": "이서린",
+        "MBTI": "ENTJ",
+        "pros": ["긍정적"],
+        "ownStyle": ["활동적"],
+        "blogURL": "https://velog.io/@seorin"
+    },
+    {
+        "imageName": "pic1",
+        "name": "박주하",
+        "MBTI": "ISFJ",
+        "pros": ["성실하게 배우는 자세로 꾸준히 학습한다.","실수를 줄이기 위해 꼼꼼히 검토한다.", "끈기 있게 항상 도전한다."],
+        "ownStyle": ["어려움을 겪는 팀원이 있으면 먼저 다가가 도와준다.", "맡은 일은 책임감 있게 묵묵히 완수한다.", "놓치기 쉬운 부분을 먼저 확인하고 대비한다."],
+        "blogURL": "https://velog.io/@juha"
+    },
+    {
+        "imageName": "pic3",
+        "name": "박범근",
+        "MBTI": "ISTJ",
+        "pros": ["사소한 것에 꼼꼼한 경향이 있음(맞춤법, 살짝 어긋난 레이아웃 등"],
+        "ownStyle": ["최대한 타인 의견 수용하려고 노력함"],
+        "blogURL": "https://velog.io/@luca__tuna/posts"
+    },
+    {
+        "imageName": "pic4",
+        "name": "김성연",
+        "MBTI": "INTP",
+        "pros": ["배려심, 책임감, 꾸준함"],
+        "ownStyle": ["조율 중심, 자율적인 협업 선호"],
+        "blogURL": "velog.io/@greenocean"
+    },
+    },
+]
+ 
+ 
