@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  TeamIntroApp
-//
-//  Created by estelle on 5/20/25.
-//
-
 import UIKit
 
 class ListPageViewController: UIViewController {
@@ -22,12 +15,14 @@ class ListPageViewController: UIViewController {
     @IBOutlet var memberNameLabel5: UILabel!
     
     @IBOutlet var slider: UISlider!
+    
+    var members: [TeamMember] = []
 
     // MARK: 사진 위치 조절을 위한 디버그 변수
 
     var yValue: CGFloat = 0.1 {
         didSet {
-            member2()
+            member5()
         }
     }
     
@@ -44,6 +39,41 @@ class ListPageViewController: UIViewController {
     
     // MARK: 사진 위치 조정 변수들
 
+    @objc func tapTeamImage() {
+        // segue 연결
+        print("Tapped team Image")
+    }
+    
+    @objc func tapMemberImage1() {
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[0]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
+    }
+    
+    @objc func tapMemberImage2() {
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[1]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
+    }
+    
+    @objc func tapMemberImage3() {
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[2]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
+    }
+    
+    @objc func tapMemberImage4() {
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[3]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
+    }
+    
+    @objc func tapMemberImage5() {
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[4]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
+    }
+    
     func team() {
         let y: Double = yValue
         teamImageView.layer.contentsRect = CGRect(
@@ -55,8 +85,9 @@ class ListPageViewController: UIViewController {
     }
     
     func member1() {
-        // 박주하
+        // 이서린
         let y = 0.2
+        memberImageView1.contentMode = .scaleAspectFit
         memberImageView1.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -66,8 +97,8 @@ class ListPageViewController: UIViewController {
     }
     
     func member2() {
-        // 김우성
-        let y: Double = -0.3
+        // 박주하
+        let y = 0.2
         memberImageView2.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -77,8 +108,8 @@ class ListPageViewController: UIViewController {
     }
     
     func member3() {
-        // 이서린
-        let y: Double = yValue
+        // 박범근
+        let y: Double = -0.5
         memberImageView3.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -89,7 +120,8 @@ class ListPageViewController: UIViewController {
     
     func member4() {
         // 김성연
-        let y: Double = 0
+        let y: Double = -0.3
+        memberImageView1.contentMode = .scaleAspectFit
         memberImageView4.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -99,6 +131,7 @@ class ListPageViewController: UIViewController {
     }
     
     func member5() {
+        // 김우성
         let y: Double = -0.4
         memberImageView5.layer.contentsRect = CGRect(
             x: 0,
@@ -110,12 +143,31 @@ class ListPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        members = loadMembersFromJSON() ?? []
         team()
         member1()
         member2()
         member3()
         member4()
         member5()
+        
+        if members.count >= 5 {
+            // 이미지 설정
+            memberImageView1.image = UIImage(named: members[0].imageName)
+            memberNameLabel1.text = members[0].name
+            
+            memberImageView2.image = UIImage(named: members[1].imageName)
+            memberNameLabel2.text = members[1].name
+            
+            memberImageView3.image = UIImage(named: members[2].imageName)
+            memberNameLabel3.text = members[2].name
+            
+            memberImageView4.image = UIImage(named: members[3].imageName)
+            memberNameLabel4.text = members[3].name
+            
+            memberImageView5.image = UIImage(named: members[4].imageName)
+            memberNameLabel5.text = members[4].name
+        }
         
         let teamImageTap = UITapGestureRecognizer(target: self, action: #selector(tapTeamImage))
         let memberImageTap1 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage1))
@@ -143,27 +195,21 @@ class ListPageViewController: UIViewController {
         memberImageView5.addGestureRecognizer(memberImageTap5)
     }
     
-    @objc func tapTeamImage() {
-        print("Tapped team Image")
-    }
     
-    @objc func tapMemberImage1() {
-        print("Tapped member Image 1")
-    }
     
-    @objc func tapMemberImage2() {
-        print("Tapped member Image 2")
-    }
-    
-    @objc func tapMemberImage3() {
-        print("Tapped member Image 3")
-    }
-    
-    @objc func tapMemberImage4() {
-        print("Tapped member Image 4")
-    }
-    
-    @objc func tapMemberImage5() {
-        print("Tapped member Image 5")
+    func loadMembersFromJSON() -> [TeamMember]? {
+        guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
+            print("❌ member.json 파일을 찾을 수 없습니다.")
+            return nil
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let members = try JSONDecoder().decode([TeamMember].self, from: data)
+            return members
+        } catch {
+            print("❌ JSON 디코딩 실패: \(error)")
+            return nil
+        }
     }
 }
