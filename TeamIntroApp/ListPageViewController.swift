@@ -14,9 +14,17 @@ class ListPageViewController: UIViewController {
     @IBOutlet var memberImageView3: UIImageView!
     @IBOutlet var memberImageView4: UIImageView!
     @IBOutlet var memberImageView5: UIImageView!
-    @IBOutlet var slider: UISlider!
+    @IBOutlet var teamNameLabel: UILabel!
+    @IBOutlet var memberNameLabel1: UILabel!
+    @IBOutlet var memberNameLabel2: UILabel!
+    @IBOutlet var memberNameLabel3: UILabel!
+    @IBOutlet var memberNameLabel4: UILabel!
+    @IBOutlet var memberNameLabel5: UILabel!
     
+    @IBOutlet var slider: UISlider!
+
     // MARK: 사진 위치 조절을 위한 디버그 변수
+
     var yValue: CGFloat = 0.1 {
         didSet {
             member2()
@@ -24,6 +32,7 @@ class ListPageViewController: UIViewController {
     }
     
     // MARK: 사진 위치 조절을 위한 디버그 슬라이더
+
     @IBAction func sliderChange(_ sender: UISlider!) {
         let step: Float = 0.1
         let roundedValue = round(sender.value / step) * step
@@ -34,6 +43,7 @@ class ListPageViewController: UIViewController {
     }
     
     // MARK: 사진 위치 조정 변수들
+
     func team() {
         let y: Double = yValue
         teamImageView.layer.contentsRect = CGRect(
@@ -45,8 +55,8 @@ class ListPageViewController: UIViewController {
     }
     
     func member1() {
-        //박주하
-        var y: Double = 0.2
+        // 박주하
+        let y = 0.2
         memberImageView1.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -56,8 +66,8 @@ class ListPageViewController: UIViewController {
     }
     
     func member2() {
-        //김우성
-        var y: Double = -0.3
+        // 김우성
+        let y: Double = -0.3
         memberImageView2.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -67,7 +77,7 @@ class ListPageViewController: UIViewController {
     }
     
     func member3() {
-        //이서린
+        // 이서린
         let y: Double = yValue
         memberImageView3.layer.contentsRect = CGRect(
             x: 0,
@@ -78,8 +88,8 @@ class ListPageViewController: UIViewController {
     }
     
     func member4() {
-        //김성연
-        var y: Double = 0
+        // 김성연
+        let y: Double = 0
         memberImageView4.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -89,7 +99,7 @@ class ListPageViewController: UIViewController {
     }
     
     func member5() {
-        var y: Double = -0.4
+        let y: Double = -0.4
         memberImageView5.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -106,6 +116,7 @@ class ListPageViewController: UIViewController {
         member3()
         member4()
         member5()
+        
         let teamImageTap = UITapGestureRecognizer(target: self, action: #selector(tapTeamImage))
         let memberImageTap1 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage1))
         let memberImageTap2 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage2))
