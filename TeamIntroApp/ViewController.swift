@@ -19,6 +19,14 @@ struct Member: Codable {
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+    }
+
+    @IBAction func blogButtonTapped(_ sender: UIButton) {
+        let memberListVC = TempForBlogMemberListViewController()
+        self.navigationController?.pushViewController(memberListVC, animated: true)
+    }
             super.viewDidLoad()
 
             if let members = loadMembers() {
