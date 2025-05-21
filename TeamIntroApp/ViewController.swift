@@ -1,11 +1,5 @@
-//
-//  ViewController.swift
-//  TeamIntroApp
-//
-//  Created by estelle on 5/20/25.
-//
-
 import UIKit
+import Foundation
 
 struct Member: Codable {
     let imageName: String
@@ -16,53 +10,56 @@ struct Member: Codable {
     let blogURL: String
 }
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+
+    var members: [Member] = []
+    let tableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .white
+        members = loadMembers() ?? []
+
+        setupTableView()
     }
 
-    @IBAction func blogButtonTapped(_ sender: UIButton) {
-        let memberListVC = TempForBlogMemberListViewController()
-        self.navigationController?.pushViewController(memberListVC, animated: true)
+    func setupTableView() {
+        tableView.frame = view.bounds
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(tableView)
     }
-            super.viewDidLoad()
 
-            if let members = loadMembers() {
-                print("✅ JSON 로드 성공!")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members.count
+    }
 
-                for member in members {
-                    print("🔹 이름: \(member.name)")
-                    print("   MBTI: \(member.MBTI)")
-                    print("   장점(pros): \(member.pros.joined(separator: ", "))")
-                    print("   스타일(ownStyle): \(member.ownStyle.joined(separator: ", "))")
-                    print("   블로그 주소: \(member.blogURL)")
-                    print("   이미지 이름: \(member.imageName)")
-                    print("------------------------------------")
-                }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let member = members[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = member.name
+        return cell
+    }
 
-            } else {
-                print("❌ JSON 로드 실패")
-            }
-        }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedMember = members[indexPath.row]
+        let detailVC = MemberDetailViewController()
+        detailVC.member = selectedMember
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 
     func loadMembers() -> [Member]? {
         guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
             print("⚠️ JSON 파일을 찾을 수 없습니다.")
             return nil
         }
-
         do {
             let data = try Data(contentsOf: url)
-            let members = try JSONDecoder().decode([Member].self, from: data)
-            return members
+            return try JSONDecoder().decode([Member].self, from: data)
         } catch {
             print("⚠️ JSON 디코딩 실패: \(error)")
             return nil
         }
     }
 }
-
-
