@@ -57,12 +57,12 @@ class SplashViewController: UIViewController {
     
     private func showMainView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! ViewController
         let navVC = UINavigationController(rootViewController: mainVC)
         
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, let window = windowScene.windows.first {
-                window.rootViewController = navVC
-                window.makeKeyAndVisible()
+        if let sceneDelegate = UIApplication.shared.connectedScenes
+            .first?.delegate as? SceneDelegate {
+            sceneDelegate.window?.rootViewController = navVC
         }
     }
 
