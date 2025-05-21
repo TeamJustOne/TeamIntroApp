@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct TeamMember {
+struct TeamMember: Codable {
+    let imageName: String
     let name: String
     let mbti: String
     let description: String
     let strengths: [String]
-    let collaborationStyle: String
+    let collaborationStyle: [String]
     let blogURL: URL
 } 
