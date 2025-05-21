@@ -1,16 +1,4 @@
-//
-//  ViewController.swift
-//  TeamIntroApp
-//
-//  Created by estelle on 5/20/25.
-//
-
 import UIKit
-
-struct Member: Codable {
-    let imageName: String
-    let name: String
-}
 
 class ListPageViewController: UIViewController {
     @IBOutlet var teamImageView: UIImageView!
@@ -27,6 +15,8 @@ class ListPageViewController: UIViewController {
     @IBOutlet var memberNameLabel5: UILabel!
     
     @IBOutlet var slider: UISlider!
+    
+    var members: [TeamMember] = []
 
     // MARK: 사진 위치 조절을 위한 디버그 변수
 
@@ -55,33 +45,33 @@ class ListPageViewController: UIViewController {
     }
     
     @objc func tapMemberImage1() {
-        // segue 연결
-
-        print("Tapped member Image 1")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[0]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage2() {
-        // segue 연결
-
-        print("Tapped member Image 2")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[1]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage3() {
-        // segue 연결
-
-        print("Tapped member Image 3")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[2]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage4() {
-        // segue 연결
-
-        print("Tapped member Image 4")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[3]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage5() {
-        // segue 연결
-
-        print("Tapped member Image 5")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[4]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     func team() {
@@ -153,6 +143,7 @@ class ListPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        members = loadMembersFromJSON() ?? []
         team()
         member1()
         member2()
@@ -160,7 +151,7 @@ class ListPageViewController: UIViewController {
         member4()
         member5()
         
-        if let members = loadMembersFromJSON(), members.count >= 5 {
+        if members.count >= 5 {
             // 이미지 설정
             memberImageView1.image = UIImage(named: members[0].imageName)
             memberNameLabel1.text = members[0].name
@@ -206,7 +197,7 @@ class ListPageViewController: UIViewController {
     
     
     
-    func loadMembersFromJSON() -> [Member]? {
+    func loadMembersFromJSON() -> [TeamMember]? {
         guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
             print("❌ member.json 파일을 찾을 수 없습니다.")
             return nil
@@ -214,7 +205,7 @@ class ListPageViewController: UIViewController {
         
         do {
             let data = try Data(contentsOf: url)
-            let members = try JSONDecoder().decode([Member].self, from: data)
+            let members = try JSONDecoder().decode([TeamMember].self, from: data)
             return members
         } catch {
             print("❌ JSON 디코딩 실패: \(error)")
