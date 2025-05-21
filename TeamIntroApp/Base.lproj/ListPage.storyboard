@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -122,7 +123,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="faY-ZE-fws">
                                                 <rect key="frame" x="5.9999999999999964" y="58.333333333333314" width="63.666666666666657" height="30"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HLA-lD-UaV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="63.666666666666657" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1r-tw-zap">
@@ -166,7 +167,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFk-nn-TpI">
                                                 <rect key="frame" x="5.9999999999999964" y="58.333333333333371" width="63.666666666666657" height="30"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="XXb-aq-oHG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="63.666666666666657" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzd-yl-SYr">
@@ -210,7 +211,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2c-fO-fkO">
                                                 <rect key="frame" x="5.9999999999999964" y="58.333333333333258" width="63.666666666666657" height="30"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="V1W-tA-JFS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="63.666666666666657" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wr8-Vw-nr7">
@@ -254,7 +255,7 @@
                                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKY-Bz-EzB">
                                                 <rect key="frame" x="5.9999999999999964" y="58.333333333333371" width="63.666666666666657" height="30"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ajF-gt-iA9">
-                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="63.666666666666657" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t1-ec-MMN">
@@ -314,16 +315,16 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="memberImageView1" destination="0rn-6u-sFH" id="4OY-MW-91i"/>
-                        <outlet property="memberImageView2" destination="9Jp-XZ-Krh" id="dOt-d5-nC5"/>
-                        <outlet property="memberImageView3" destination="ghd-cj-A2o" id="dvu-FP-660"/>
-                        <outlet property="memberImageView4" destination="iNK-DX-thT" id="z7l-wi-glD"/>
-                        <outlet property="memberImageView5" destination="BUh-8x-S7d" id="L4a-dD-Ebu"/>
-                        <outlet property="memberNameLabel1" destination="uRO-UL-Osr" id="pdt-ec-aE3"/>
-                        <outlet property="memberNameLabel2" destination="B1r-tw-zap" id="QEf-Ct-Q4I"/>
-                        <outlet property="memberNameLabel3" destination="wzd-yl-SYr" id="GTo-YK-DLG"/>
-                        <outlet property="memberNameLabel4" destination="wr8-Vw-nr7" id="Jro-rD-7Rd"/>
-                        <outlet property="memberNameLabel5" destination="7t1-ec-MMN" id="uUF-1S-OnT"/>
+                        <outlet property="memberImageView1" destination="0rn-6u-sFH" id="nRt-fr-ebu"/>
+                        <outlet property="memberImageView2" destination="9Jp-XZ-Krh" id="GFl-Wh-Ydk"/>
+                        <outlet property="memberImageView3" destination="ghd-cj-A2o" id="W4P-c3-IkS"/>
+                        <outlet property="memberImageView4" destination="iNK-DX-thT" id="B5b-G8-X9O"/>
+                        <outlet property="memberImageView5" destination="BUh-8x-S7d" id="fJ9-ZD-GV0"/>
+                        <outlet property="memberNameLabel1" destination="uRO-UL-Osr" id="BJy-Do-M5F"/>
+                        <outlet property="memberNameLabel2" destination="B1r-tw-zap" id="EbE-rW-1DP"/>
+                        <outlet property="memberNameLabel3" destination="wzd-yl-SYr" id="M0B-sE-b7M"/>
+                        <outlet property="memberNameLabel4" destination="wr8-Vw-nr7" id="20J-im-4kb"/>
+                        <outlet property="memberNameLabel5" destination="7t1-ec-MMN" id="jdj-lh-bUi"/>
                         <outlet property="slider" destination="wFb-i8-aDN" id="onJ-2j-ZS7"/>
                         <outlet property="teamImageView" destination="2Rh-Zu-PbX" id="SpA-QB-nVi"/>
                         <outlet property="teamNameLabel" destination="h9Y-hU-HcX" id="haI-I9-Omi"/>
