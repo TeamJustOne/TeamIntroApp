@@ -1,30 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--TeamInfo-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TeamInfoViewController" title="TeamInfo" id="Y6W-OH-hqX" customClass="TeamInfoViewController" customModule="TeamIntroApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6hy-nI-Ze0">
+                                <rect key="frame" x="16" y="100" width="361" height="270.66666666666669"/>
+                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6hy-nI-Ze0" secondAttribute="height" multiplier="4:3" id="EBa-8T-t1h"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-xA-VL0">
+                                <rect key="frame" x="16" y="378" width="361" height="406"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t8T-3v-fW4">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="403.33333333333331"/>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="t8T-3v-fW4" secondAttribute="width" id="KBp-Ty-Mzi"/>
+                                    <constraint firstAttribute="bottom" secondItem="t8T-3v-fW4" secondAttribute="bottom" constant="2.6666666666666856" id="Msi-0C-9hr"/>
+                                    <constraint firstAttribute="trailing" secondItem="t8T-3v-fW4" secondAttribute="trailing" id="Zwd-Di-FEV"/>
+                                    <constraint firstItem="t8T-3v-fW4" firstAttribute="leading" secondItem="3Zk-xA-VL0" secondAttribute="leading" id="d3e-8f-O5l"/>
+                                    <constraint firstItem="t8T-3v-fW4" firstAttribute="top" secondItem="3Zk-xA-VL0" secondAttribute="top" id="jLv-23-FVr"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Qro-1Z-KMm"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="1iE-Se-dVj"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Zk-xA-VL0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5Bu-0a-Veg"/>
+                            <constraint firstItem="6hy-nI-Ze0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ATQ-N7-52k"/>
+                            <constraint firstItem="3Zk-xA-VL0" firstAttribute="top" secondItem="6hy-nI-Ze0" secondAttribute="bottom" constant="10" id="DTd-3E-S2d"/>
+                            <constraint firstItem="3Zk-xA-VL0" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="R3E-Wd-6aX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="3Zk-xA-VL0" secondAttribute="trailing" constant="16" id="ew9-G3-8PH"/>
+                            <constraint firstItem="6hy-nI-Ze0" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="100" id="gFp-tQ-9RT"/>
+                            <constraint firstItem="6hy-nI-Ze0" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="iNg-EF-JwJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6hy-nI-Ze0" secondAttribute="trailing" constant="16" id="o26-EG-ghv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="6hy-nI-Ze0" id="TVm-d4-BsK"/>
+                        <outlet property="scrollView" destination="3Zk-xA-VL0" id="i21-JR-7jc"/>
+                        <outlet property="stackView" destination="t8T-3v-fW4" id="gH4-j3-8A7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.824427480916029" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
