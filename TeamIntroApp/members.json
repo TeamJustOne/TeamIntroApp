@@ -33,7 +33,7 @@
         "description": "member1",
         "strengths": ["배려심, 책임감, 꾸준함"],
         "collaborationStyle": ["조율 중심, 자율적인 협업 선호"],
-        "blogURL": "velog.io/@greenocean"
+        "blogURL": "https://velog.io/@greenocean"
     },
     {
         "imageName": "pic5",

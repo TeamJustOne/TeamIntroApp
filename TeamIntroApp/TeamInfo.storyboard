@@ -27,16 +27,21 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Zk-xA-VL0">
                                 <rect key="frame" x="16" y="378" width="361" height="406"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t8T-3v-fW4">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0JP-Je-LvB">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="403.33333333333331"/>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="t8T-3v-fW4" secondAttribute="width" id="KBp-Ty-Mzi"/>
-                                    <constraint firstAttribute="bottom" secondItem="t8T-3v-fW4" secondAttribute="bottom" constant="2.6666666666666856" id="Msi-0C-9hr"/>
-                                    <constraint firstAttribute="trailing" secondItem="t8T-3v-fW4" secondAttribute="trailing" id="Zwd-Di-FEV"/>
-                                    <constraint firstItem="t8T-3v-fW4" firstAttribute="leading" secondItem="3Zk-xA-VL0" secondAttribute="leading" id="d3e-8f-O5l"/>
-                                    <constraint firstItem="t8T-3v-fW4" firstAttribute="top" secondItem="3Zk-xA-VL0" secondAttribute="top" id="jLv-23-FVr"/>
+                                    <constraint firstItem="0JP-Je-LvB" firstAttribute="leading" secondItem="3Zk-xA-VL0" secondAttribute="leading" id="0HA-ac-yxT"/>
+                                    <constraint firstAttribute="width" secondItem="0JP-Je-LvB" secondAttribute="width" id="Qxv-m1-WN5"/>
+                                    <constraint firstAttribute="bottom" secondItem="0JP-Je-LvB" secondAttribute="bottom" id="Whl-Y4-JaL"/>
+                                    <constraint firstItem="0JP-Je-LvB" firstAttribute="top" secondItem="3Zk-xA-VL0" secondAttribute="top" id="hat-rI-wCU"/>
+                                    <constraint firstAttribute="trailing" secondItem="0JP-Je-LvB" secondAttribute="trailing" id="rN6-3I-84e"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="Qro-1Z-KMm"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="1iE-Se-dVj"/>
@@ -58,7 +63,7 @@
                     <connections>
                         <outlet property="imageView" destination="6hy-nI-Ze0" id="TVm-d4-BsK"/>
                         <outlet property="scrollView" destination="3Zk-xA-VL0" id="i21-JR-7jc"/>
-                        <outlet property="stackView" destination="t8T-3v-fW4" id="gH4-j3-8A7"/>
+                        <outlet property="textView" destination="0JP-Je-LvB" id="Jlb-TH-S8S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -67,11 +72,14 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
