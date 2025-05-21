@@ -2,7 +2,7 @@ import UIKit
 
 class MemberDetailViewController: UIViewController {
 
-    var member: TeamMember?  // ViewController에서 전달받음
+    var member: TeamMember?   // ViewController에서 전달받음
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,11 +33,17 @@ class MemberDetailViewController: UIViewController {
         yOffset += 40
         let styleLabel = makeLabel(text: "🎨 스타일: \(member.collaborationStyle.joined(separator: ", "))", y: yOffset)
         yOffset += 40
+        
+        let blogLabel = makeLabel(text: "🌐 블로그: \(member.blogURL)", y: yOffset)
+        blogLabel.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
+        blogLabel.addGestureRecognizer(tapGesture)
 
         view.addSubview(nameLabel)
         view.addSubview(mbtiLabel)
         view.addSubview(prosLabel)
         view.addSubview(styleLabel)
+        view.addSubview(blogLabel)
 
     }
 
@@ -50,5 +56,10 @@ class MemberDetailViewController: UIViewController {
         label.sizeToFit()
         return label
     }
+    
+    @objc func labelTapped() {
+        let webViewController = BlogWebViewController(url: member!.blogURL)
+        navigationController?.pushViewController(webViewController, animated: true)
+        }
 
     }
