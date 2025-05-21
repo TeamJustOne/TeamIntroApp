@@ -67,11 +67,11 @@ class TempForBlogMemberListViewController: UIViewController {
     }()
     
     private let members: [TeamMember] = [
-        TeamMember(name: "박주하", mbti: "", description: "", strengths: [], collaborationStyle: "", blogURL: URL(string: "https://velog.io/@juha")!),
-        TeamMember(name: "김우성", mbti: "", description: "", strengths: [], collaborationStyle: "", blogURL: URL(string: "https://velog.io/@housedone")!),
-        TeamMember(name: "이서린", mbti: "", description: "", strengths: [], collaborationStyle: "", blogURL: URL(string: "https://velog.io/@seorin")!),
-        TeamMember(name: "김성연", mbti: "", description: "", strengths: [], collaborationStyle: "", blogURL: URL(string: "https://velog.io/@greenocean")!),
-        TeamMember(name: "박범근", mbti: "", description: "", strengths: [], collaborationStyle: "", blogURL: URL(string: "https://velog.io/@luca__tuna")!)
+        TeamMember(imageName:"",name: "박주하", mbti: "", description: "", strengths: [], collaborationStyle: [],  blogURL: URL(string: "https://velog.io/@juha")!),
+        TeamMember(imageName:"",name: "김우성", mbti: "", description: "", strengths: [], collaborationStyle: [],  blogURL: URL(string: "https://velog.io/@housedone")!),
+        TeamMember(imageName:"",name: "이서린", mbti: "", description: "", strengths: [], collaborationStyle: [], blogURL: URL(string: "https://velog.io/@seorin")!),
+        TeamMember(imageName:"",name: "김성연", mbti: "", description: "", strengths: [], collaborationStyle: [], blogURL: URL(string: "https://velog.io/@greenocean")!),
+        TeamMember(imageName:"",name: "박범근", mbti: "", description: "", strengths: [], collaborationStyle: [], blogURL: URL(string: "https://velog.io/@luca__tuna")!)
     ]
     
     override func viewDidLoad() {

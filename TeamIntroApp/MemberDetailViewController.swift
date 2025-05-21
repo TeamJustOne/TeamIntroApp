@@ -2,7 +2,7 @@ import UIKit
 
 class MemberDetailViewController: UIViewController {
 
-    var member: Member?  // ViewController에서 전달받음
+    var member: TeamMember?  // ViewController에서 전달받음
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,11 @@ class MemberDetailViewController: UIViewController {
 
         let nameLabel = makeLabel(text: "이름: \(member.name)", y: yOffset)
         yOffset += 30
-        let mbtiLabel = makeLabel(text: "🧠 MBTI: \(member.MBTI)", y: yOffset)
+        let mbtiLabel = makeLabel(text: "🧠 MBTI: \(member.mbti)", y: yOffset)
         yOffset += 26
-        let prosLabel = makeLabel(text: "💪 장점: \(member.pros.joined(separator: ", "))", y: yOffset)
+        let prosLabel = makeLabel(text: "💪 장점: \(member.strengths.joined(separator: ", "))", y: yOffset)
         yOffset += 40
-        let styleLabel = makeLabel(text: "🎨 스타일: \(member.ownStyle.joined(separator: ", "))", y: yOffset)
+        let styleLabel = makeLabel(text: "🎨 스타일: \(member.collaborationStyle.joined(separator: ", "))", y: yOffset)
         yOffset += 40
 
         view.addSubview(nameLabel)
@@ -52,4 +52,3 @@ class MemberDetailViewController: UIViewController {
     }
 
     }
-

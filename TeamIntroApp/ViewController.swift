@@ -1,18 +1,10 @@
 import UIKit
 import Foundation
 
-struct Member: Codable {
-    let imageName: String
-    let name: String
-    let MBTI: String
-    let pros: [String]
-    let ownStyle: [String]
-    let blogURL: String
-}
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var members: [Member] = []
+    var members: [TeamMember] = []
     let tableView = UITableView()
 
     override func viewDidLoad() {
@@ -49,14 +41,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         navigationController?.pushViewController(detailVC, animated: true)
     }
 
-    func loadMembers() -> [Member]? {
+    func loadMembers() -> [TeamMember]? {
         guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
             print("⚠️ JSON 파일을 찾을 수 없습니다.")
             return nil
         }
         do {
             let data = try Data(contentsOf: url)
-            return try JSONDecoder().decode([Member].self, from: data)
+            return try JSONDecoder().decode([TeamMember].self, from: data)
         } catch {
             print("⚠️ JSON 디코딩 실패: \(error)")
             return nil
