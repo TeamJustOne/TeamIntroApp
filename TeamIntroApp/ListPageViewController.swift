@@ -1,16 +1,4 @@
-//
-//  ViewController.swift
-//  TeamIntroApp
-//
-//  Created by estelle on 5/20/25.
-//
-
 import UIKit
-
-struct Member: Codable {
-    let imageName: String
-    let name: String
-}
 
 class ListPageViewController: UIViewController {
     @IBOutlet var teamImageView: UIImageView!
@@ -27,9 +15,11 @@ class ListPageViewController: UIViewController {
     @IBOutlet var memberNameLabel5: UILabel!
     
     @IBOutlet var slider: UISlider!
-
+    
+    var members: [TeamMember] = []
+    
     // MARK: 사진 위치 조절을 위한 디버그 변수
-
+    
     var yValue: CGFloat = 0.1 {
         didSet {
             member5()
@@ -37,7 +27,7 @@ class ListPageViewController: UIViewController {
     }
     
     // MARK: 사진 위치 조절을 위한 디버그 슬라이더
-
+    
     @IBAction func sliderChange(_ sender: UISlider!) {
         let step: Float = 0.1
         let roundedValue = round(sender.value / step) * step
@@ -48,40 +38,48 @@ class ListPageViewController: UIViewController {
     }
     
     // MARK: 사진 위치 조정 변수들
-
+    
     @objc func tapTeamImage() {
         // segue 연결
         print("Tapped team Image")
+        
+        let storyboard = UIStoryboard(name: "TeamInfo", bundle: nil)
+        
+        if let teamInfoVC = storyboard.instantiateViewController(withIdentifier: "TeamInfoViewController") as? TeamInfoViewController {
+            navigationController?.pushViewController(teamInfoVC, animated: true)
+        } else {
+            print("TeamInfoViewController를 인스턴스화할 수 없습니다.")
+        }
     }
     
     @objc func tapMemberImage1() {
-        // segue 연결
-
-        print("Tapped member Image 1")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[0]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage2() {
-        // segue 연결
-
-        print("Tapped member Image 2")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[1]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage3() {
-        // segue 연결
-
-        print("Tapped member Image 3")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[2]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage4() {
-        // segue 연결
-
-        print("Tapped member Image 4")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[3]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     @objc func tapMemberImage5() {
-        // segue 연결
-
-        print("Tapped member Image 5")
+        let memberDetailVC = MemberDetailViewController()
+        memberDetailVC.member = members[4]
+        navigationController?.pushViewController(memberDetailVC, animated: true)
     }
     
     func team() {
@@ -153,6 +151,7 @@ class ListPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        members = loadMembersFromJSON() ?? []
         team()
         member1()
         member2()
@@ -160,7 +159,7 @@ class ListPageViewController: UIViewController {
         member4()
         member5()
         
-        if let members = loadMembersFromJSON(), members.count >= 5 {
+        if members.count >= 5 {
             // 이미지 설정
             memberImageView1.image = UIImage(named: members[0].imageName)
             memberNameLabel1.text = members[0].name
@@ -184,7 +183,7 @@ class ListPageViewController: UIViewController {
         let memberImageTap3 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage3))
         let memberImageTap4 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage4))
         let memberImageTap5 = UITapGestureRecognizer(target: self, action: #selector(tapMemberImage5))
-
+        
         teamImageView.isUserInteractionEnabled = true
         teamImageView.addGestureRecognizer(teamImageTap)
         
@@ -206,7 +205,7 @@ class ListPageViewController: UIViewController {
     
     
     
-    func loadMembersFromJSON() -> [Member]? {
+    func loadMembersFromJSON() -> [TeamMember]? {
         guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
             print("❌ member.json 파일을 찾을 수 없습니다.")
             return nil
@@ -214,7 +213,7 @@ class ListPageViewController: UIViewController {
         
         do {
             let data = try Data(contentsOf: url)
-            let members = try JSONDecoder().decode([Member].self, from: data)
+            let members = try JSONDecoder().decode([TeamMember].self, from: data)
             return members
         } catch {
             print("❌ JSON 디코딩 실패: \(error)")

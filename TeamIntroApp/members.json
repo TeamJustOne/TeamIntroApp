@@ -13,8 +13,8 @@
         "name": "박주하",
         "mbti": "ISFJ",
         "description": "member1",
-        "strengths": ["성실하게 배우는 자세로 꾸준히 학습한다.","실수를 줄이기 위해 꼼꼼히 검토한다.", "끈기 있게 항상 도전한다."],
-        "collaborationStyle": ["어려움을 겪는 팀원이 있으면 먼저 다가가 도와준다.", "맡은 일은 책임감 있게 묵묵히 완수한다.", "놓치기 쉬운 부분을 먼저 확인하고 대비한다."],
+        "strengths": ["성실하게 꾸준히 학습한다.","꼼꼼히 검토한다.", "끈기 있게 도전한다."],
+        "collaborationStyle": ["어려움을 겪는 팀원이 있으면 먼저 다가가 도와준다.", "맡은 일은 책임감 있게 완수한다."],
         "blogURL": "https://velog.io/@juha"
     },
     {
@@ -33,7 +33,7 @@
         "description": "member1",
         "strengths": ["배려심, 책임감, 꾸준함"],
         "collaborationStyle": ["조율 중심, 자율적인 협업 선호"],
-        "blogURL": "velog.io/@greenocean"
+        "blogURL": "https://velog.io/@greenocean"
     },
     {
         "imageName": "pic5",
