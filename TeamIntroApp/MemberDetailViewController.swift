@@ -92,3 +92,4 @@ class MemberDetailViewController: UIViewController {
         navigationController?.pushViewController(webViewController, animated: true)
         }
 }
+
