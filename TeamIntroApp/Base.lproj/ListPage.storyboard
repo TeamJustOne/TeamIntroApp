@@ -296,9 +296,6 @@
                             </stackView>
                             <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.10000000000000001" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wFb-i8-aDN">
                                 <rect key="frame" x="-2" y="411" width="397" height="31"/>
-                                <connections>
-                                    <action selector="sliderChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="Khe-qQ-gNo"/>
-                                </connections>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -325,7 +322,6 @@
                         <outlet property="memberNameLabel3" destination="wzd-yl-SYr" id="M0B-sE-b7M"/>
                         <outlet property="memberNameLabel4" destination="wr8-Vw-nr7" id="20J-im-4kb"/>
                         <outlet property="memberNameLabel5" destination="7t1-ec-MMN" id="jdj-lh-bUi"/>
-                        <outlet property="slider" destination="wFb-i8-aDN" id="onJ-2j-ZS7"/>
                         <outlet property="teamImageView" destination="2Rh-Zu-PbX" id="SpA-QB-nVi"/>
                         <outlet property="teamNameLabel" destination="h9Y-hU-HcX" id="haI-I9-Omi"/>
                     </connections>
