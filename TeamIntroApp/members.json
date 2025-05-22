@@ -22,7 +22,7 @@
         "name": "박범근",
         "mbti": "ISTJ",
         "description": "member1",
-        "strengths": ["사소한 것에 꼼꼼한 경향이 있음(맞춤법, 살짝 어긋난 레이아웃 등"],
+        "strengths": ["사소한 것에 꼼꼼한 경향이 있음(맞춤법, 살짝 어긋난 레이아웃 등)"],
         "collaborationStyle": ["최대한 타인 의견 수용하려고 노력함"],
         "blogURL": "https://velog.io/@luca__tuna/posts"
     },
@@ -32,7 +32,7 @@
         "mbti": "INTP",
         "description": "member1",
         "strengths": ["배려심", "책임감", "꾸준함"],
-        "collaborationStyle": ["조율 중심, 자율적인 협업 선호"],
+        "collaborationStyle": ["조율 중심", "자율적인 협업 선호"],
         "blogURL": "https://velog.io/@greenocean"
     },
     {

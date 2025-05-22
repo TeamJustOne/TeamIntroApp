@@ -42,6 +42,7 @@ class ListPageViewController: UIViewController {
     
     private func setupTeamImage() {
         teamImageView.image = UIImage(named: "TeamInfo")
+        teamImageView.layer.cornerRadius = 15
         teamNameLabel.text = "그냥1조"
         adjustContentsRect(for: teamImageView, y: -0.1)
     }
@@ -50,8 +51,11 @@ class ListPageViewController: UIViewController {
         let yValues: [CGFloat] = [0.2, 0.2, -0.5, -0.3, -0.4]
         
         for (i, imageView) in memberImageViews.enumerated() {
+            imageView.layer.cornerRadius = 15
             if i == 0 || i == 3 {
                 imageView.contentMode = .scaleAspectFit
+                imageView.layer.borderColor = UIColor.systemGray4.cgColor
+                imageView.layer.borderWidth = 1
             }
             
             if i < yValues.count {

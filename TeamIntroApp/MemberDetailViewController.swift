@@ -14,7 +14,7 @@ class MemberDetailViewController: UIViewController {
     func setupUI() {
         guard let member = member else { return }
         
-        var yOffset: CGFloat = 100
+        let yOffset: CGFloat = 100
         
         let imageWidth: CGFloat = view.frame.width - 40
         let imageHeight: CGFloat = 200
@@ -26,70 +26,87 @@ class MemberDetailViewController: UIViewController {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
         view.addSubview(imageView)
-        yOffset += imageHeight + 20
         
-        view.addSubview(makeTitleLabel(text: "이름", y: yOffset))
-        yOffset += 26
-        view.addSubview(makeContentLabel(text: member.name, y: yOffset))
-        yOffset += 30
+        let nameView = makeStackView(title: "이름", value: member.name)
+        let mbtiView = makeStackView(title: "🧠 MBTI", value: member.mbti)
+        let firstView = UIStackView()
+        firstView.axis = .horizontal
+        firstView.spacing = 20
+        firstView.distribution = .fillEqually
+        firstView.translatesAutoresizingMaskIntoConstraints = false
+        firstView.addArrangedSubview(nameView)
+        firstView.addArrangedSubview(mbtiView)
+        view.addSubview(firstView)
+                
+        let strengthsView = makeStackView(title: "💪 장점", value: member.strengths.map {"• \($0)"}.joined(separator: "\n"))
+        let styleView = makeStackView(title: "🎨 협업 스타일", value: member.collaborationStyle.map {"• \($0)"}.joined(separator: "\n"))
+        let blogView = makeStackView(title: "🌐 블로그", value: member.blogURL.absoluteString)
+        let secondView = UIStackView()
+        secondView.axis = .vertical
+        secondView.spacing = 20
+        secondView.translatesAutoresizingMaskIntoConstraints = false
+        secondView.addArrangedSubview(strengthsView)
+        secondView.addArrangedSubview(styleView)
+        secondView.addArrangedSubview(blogView)
+        view.addSubview(secondView)
         
-        view.addSubview(makeTitleLabel(text: "🧠 MBTI", y: yOffset))
-        yOffset += 26
-        view.addSubview(makeContentLabel(text: member.mbti, y: yOffset))
-        yOffset += 30
+        NSLayoutConstraint.activate([
+            firstView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
+            firstView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            firstView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                    
+            secondView.topAnchor.constraint(equalTo: firstView.bottomAnchor, constant: 20),
+            secondView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            secondView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+        ])
         
-        view.addSubview(makeTitleLabel(text: "💪 장점", y: yOffset))
-        yOffset += 26
-        for strength in member.strengths {
-            let label = makeContentLabel(text: "• \(strength)", y: yOffset)
-            view.addSubview(label)
-            yOffset += label.frame.height + 6
-        }
-        yOffset += 10
-        
-        view.addSubview(makeTitleLabel(text: "🎨 스타일", y: yOffset))
-        yOffset += 26
-        for style in member.collaborationStyle {
-            let label = makeContentLabel(text: "• \(style)", y: yOffset)
-            view.addSubview(label)
-            yOffset += label.frame.height + 6
-        }
-        yOffset += 10
-        
-        view.addSubview(makeTitleLabel(text: "🌐 블로그", y: yOffset))
-        yOffset += 26
-        let blogLabel = makeContentLabel(text: member.blogURL.absoluteString, y: yOffset)
-        blogLabel.isUserInteractionEnabled = true
-        blogLabel.textColor = .black
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(labelTapped))
-        blogLabel.addGestureRecognizer(tapGesture)
-        view.addSubview(blogLabel)
-        
-        
-        
+        blogView.isUserInteractionEnabled = true
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(blogLabelTapped))
+        blogView.addGestureRecognizer(tapGesture)
     }
     
-    func makeTitleLabel(text: String, y: CGFloat) -> UILabel {
+    func makeContentLabel(text: String) -> UIView {
         let label = UILabel()
-        label.frame = CGRect(x: 20, y: y, width: view.frame.width - 40, height: 24)
-        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.text = text
-        return label
-    }
-    
-    func makeContentLabel(text: String, y: CGFloat) -> UILabel {
-        let label = UILabel()
-        label.frame = CGRect(x: 20, y: y, width: view.frame.width - 40, height: 0)
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.text = text
+        label.textColor = .darkGray
         label.numberOfLines = 0
-        label.sizeToFit()
-        return label
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.backgroundColor = .clear
+        
+        let containerView = UIView()
+        containerView.backgroundColor = .systemGray6
+        containerView.layer.cornerRadius = 10
+        containerView.clipsToBounds = true
+            
+        containerView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+            
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 12),
+            label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -12),
+            label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 15),
+            label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15),
+        ])
+            
+        return containerView
     }
-    
-    @objc func labelTapped() {
+        
+    func makeStackView(title: String, value: String) -> UIStackView {
+        let titleLabel = UILabel()
+        titleLabel.text = title
+        titleLabel.font = .systemFont(ofSize: 18, weight: .bold)
+
+        let valueLabel = makeContentLabel(text: value)
+
+        let stack = UIStackView(arrangedSubviews: [titleLabel, valueLabel])
+        stack.axis = .vertical
+        stack.spacing = 10
+        return stack
+    }
+        
+    @objc func blogLabelTapped() {
         let webViewController = BlogWebViewController(url: member!.blogURL)
         navigationController?.pushViewController(webViewController, animated: true)
-        }
+    }
 }
 
