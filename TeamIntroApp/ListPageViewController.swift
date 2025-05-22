@@ -18,26 +18,20 @@ class ListPageViewController: UIViewController {
     
     var members: [TeamMember] = []
     
-    // MARK: 사진 위치 조절을 위한 디버그 변수
-    
-    var yValue: CGFloat = 0.1 {
-        didSet {
-            member5()
-        }
-    }
-    
-    // MARK: 사진 위치 조절을 위한 디버그 슬라이더
-    
-    @IBAction func sliderChange(_ sender: UISlider!) {
-        let step: Float = 0.1
-        let roundedValue = round(sender.value / step) * step
-        sender.value = roundedValue
-        
-        yValue = CGFloat(roundedValue)
-        print("\(sender.value)")
-    }
-    
-    // MARK: 사진 위치 조정 변수들
+//    var yValue: CGFloat = 0.1 {
+//        didSet {
+//            member5()
+//        }
+//    }
+//
+//    @IBAction func sliderChange(_ sender: UISlider!) {
+//        let step: Float = 0.1
+//        let roundedValue = round(sender.value / step) * step
+//        sender.value = roundedValue
+//
+//        yValue = CGFloat(roundedValue)
+//        print("\(sender.value)")
+//    }
     
     @objc func tapTeamImage() {
         // segue 연결
@@ -83,7 +77,7 @@ class ListPageViewController: UIViewController {
     }
     
     func team() {
-        let y: Double = yValue
+        let y: Double = -0.1
         teamImageView.layer.contentsRect = CGRect(
             x: 0,
             y: y,
@@ -149,6 +143,17 @@ class ListPageViewController: UIViewController {
         )
     }
     
+    func dynamicFont() {
+        let font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        let scaledFont = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
+        
+        let labels: [UILabel] = [teamNameLabel, memberNameLabel1, memberNameLabel2, memberNameLabel3, memberNameLabel4, memberNameLabel5]
+        labels.forEach {
+            $0.font = scaledFont
+            $0.adjustsFontForContentSizeCategory = true
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         members = loadMembersFromJSON() ?? []
@@ -158,6 +163,10 @@ class ListPageViewController: UIViewController {
         member3()
         member4()
         member5()
+        dynamicFont()
+        
+        teamImageView.image = UIImage(named: "TeamInfo")
+        teamNameLabel.text = "그냥1조"
         
         if members.count >= 5 {
             // 이미지 설정
@@ -202,8 +211,6 @@ class ListPageViewController: UIViewController {
         memberImageView5.isUserInteractionEnabled = true
         memberImageView5.addGestureRecognizer(memberImageTap5)
     }
-    
-    
     
     func loadMembersFromJSON() -> [TeamMember]? {
         guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
