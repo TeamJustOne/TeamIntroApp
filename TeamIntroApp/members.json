@@ -4,8 +4,8 @@
         "name": "이서린",
         "mbti": "ENTJ",
         "description": "member1",
-        "strengths": ["긍정적"],
-        "collaborationStyle": ["활동적"],
+        "strengths": ["긍정적", "부지런함", "모르는 부분을 열심히 캐치함"],
+        "collaborationStyle": ["활동적", "열정적", "커뮤니케이션 우선 중심"],
         "blogURL": "https://velog.io/@seorin"
     },
     {
@@ -31,7 +31,7 @@
         "name": "김성연",
         "mbti": "INTP",
         "description": "member1",
-        "strengths": ["배려심, 책임감, 꾸준함"],
+        "strengths": ["배려심", "책임감", "꾸준함"],
         "collaborationStyle": ["조율 중심, 자율적인 협업 선호"],
         "blogURL": "https://velog.io/@greenocean"
     },
