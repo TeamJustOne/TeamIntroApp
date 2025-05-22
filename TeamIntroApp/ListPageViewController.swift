@@ -19,6 +19,20 @@ class ListPageViewController: UIViewController {
     private var memberImageViews: [UIImageView] = []
     private var memberNameLabels: [UILabel] = []
     
+    enum FontSet {
+        private static var isPad: Bool {
+            UIDevice.current.userInterfaceIdiom == .pad
+        }
+
+        private static func scaled(_ size: CGFloat, weight: UIFont.Weight, style: UIFont.TextStyle) -> UIFont {
+            let baseFont = UIFont.systemFont(ofSize: isPad ? size + 10 : size, weight: weight)
+            return UIFontMetrics(forTextStyle: style).scaledFont(for: baseFont)
+        }
+
+        static let nameSize = scaled(25, weight: .bold, style: .title1)
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +58,8 @@ class ListPageViewController: UIViewController {
         teamImageView.image = UIImage(named: "TeamInfo")
         teamImageView.layer.cornerRadius = 15
         teamNameLabel.text = "그냥1조"
+        teamNameLabel.font = FontSet.nameSize
+        teamNameLabel.adjustsFontForContentSizeCategory = true
         adjustContentsRect(for: teamImageView, y: -0.1)
     }
     
@@ -65,6 +81,8 @@ class ListPageViewController: UIViewController {
             if members.indices.contains(i) {
                 imageView.image = UIImage(named: members[i].imageName)
                 memberNameLabels[i].text = members[i].name
+                memberNameLabels[i].font = FontSet.nameSize
+                memberNameLabels[i].adjustsFontForContentSizeCategory = true
             }
         }
     }
