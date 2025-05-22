@@ -143,17 +143,6 @@ class ListPageViewController: UIViewController {
         )
     }
     
-    func dynamicFont() {
-        let font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        let scaledFont = UIFontMetrics(forTextStyle: .body).scaledFont(for: font)
-        
-        let labels: [UILabel] = [teamNameLabel, memberNameLabel1, memberNameLabel2, memberNameLabel3, memberNameLabel4, memberNameLabel5]
-        labels.forEach {
-            $0.font = scaledFont
-            $0.adjustsFontForContentSizeCategory = true
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         members = loadMembersFromJSON() ?? []
@@ -163,7 +152,6 @@ class ListPageViewController: UIViewController {
         member3()
         member4()
         member5()
-        dynamicFont()
         
         teamImageView.image = UIImage(named: "TeamInfo")
         teamNameLabel.text = "그냥1조"
