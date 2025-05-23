@@ -19,11 +19,23 @@ class ListPageViewController: UIViewController {
     private var memberImageViews: [UIImageView] = []
     private var memberNameLabels: [UILabel] = []
     
+    private let repository: TeamMemberRepository
+    
+    init(repository: TeamMemberRepository = TeamMemberRepositoryImpl()) {
+        self.repository = repository
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        self.repository = TeamMemberRepositoryImpl()
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupArrays()
-        members = loadMembersFromJSON() ?? []
+        loadMembers()
 
         setupTeamImage()
         setupMemberImages()
@@ -91,6 +103,7 @@ class ListPageViewController: UIViewController {
         let storyboard = UIStoryboard(name: "TeamInfo", bundle: nil)
         
         if let teamInfoVC = storyboard.instantiateViewController(withIdentifier: "TeamInfoViewController") as? TeamInfoViewController {
+//            teamInfoVC.repository = TeamRepositoryImpl()
             navigationController?.pushViewController(teamInfoVC, animated: true)
         } else {
             print("TeamInfoViewController를 인스턴스화할 수 없습니다.")
@@ -124,19 +137,12 @@ class ListPageViewController: UIViewController {
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
-    func loadMembersFromJSON() -> [TeamMember]? {
-        guard let url = Bundle.main.url(forResource: "members", withExtension: "json") else {
-            print("❌ member.json 파일을 찾을 수 없습니다.")
-            return nil
-        }
-        
+    private func loadMembers() {
         do {
-            let data = try Data(contentsOf: url)
-            let members = try JSONDecoder().decode([TeamMember].self, from: data)
-            return members
+            members = try repository.fetchTeamMembers()
         } catch {
-            print("❌ JSON 디코딩 실패: \(error)")
-            return nil
+            print("❌ 멤버 데이터 로드 실패: \(error)")
+            members = []
         }
     }
 }
